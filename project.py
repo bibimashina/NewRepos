@@ -22,19 +22,17 @@ def view_all_contact():
 # Поиск контакта
 def find_contact():
     all_contacts = view_all_contact()
-    search = input("введите имя и фамилию или номер телефона: ")
+    search = input("Введите имя и фамилию или номер телефона: ")
     if search:
         found = False
-        for contact in all_contacts:
+        for i, contact in enumerate(all_contacts, start=1):
             if search in contact:
-                print("контакт найден")
+                print(f"Контакт найден: {contact} (индекс: {i})")
                 found = True
-                break
         if not found:
-            print("контакт не найден")
+            print("Контакт не найден")
     else:
         print("Пожалуйста, введите имя и фамилию или номер телефона для поиска.")
-        return find_contact()
 
 
 #Перенос контакта
